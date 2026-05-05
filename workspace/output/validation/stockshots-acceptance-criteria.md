@@ -5,6 +5,8 @@ Status: implementation brief
 ## Data
 
 - A Binance symbol streams realtime ticks.
+- A Binance futures contract can stream realtime market data when enabled.
+- A Binance options contract can stream or degrade explicitly when enabled.
 - An Indian option symbol streams realtime ticks through Kite.
 - 5-second candles are stored with source and freshness metadata.
 - 1-minute and 5-minute candles are resampled from the same base data.
@@ -51,7 +53,11 @@ Status: implementation brief
 - Kite provides Indian realtime ticks and admin-only broker state.
 - yfinance provides historical/fallback candles and never replaces fresher
   broker rows.
-- Binance provides crypto realtime and historical data.
+- Binance spot provides crypto realtime and historical data.
+- Binance futures preserves mark price, funding context, and contract type when
+  available.
+- Binance options preserves expiry, strike, option side, and Greeks context when
+  available.
 - Provider failures produce degraded states visible in health responses.
 
 ## Production Health

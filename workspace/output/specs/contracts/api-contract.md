@@ -105,6 +105,10 @@ customer display.
 Returns provider connections, last tick times, lag, reconnects, dropped
 messages, and active symbol counts.
 
+For Binance, this must distinguish spot, USD-M futures, COIN-M futures, options,
+and private account streams. For Kite, this must distinguish instrument-token
+subscriptions, market-data state, and admin-only broker state.
+
 ### Worker Health
 
 `GET /v1/admin/workers`

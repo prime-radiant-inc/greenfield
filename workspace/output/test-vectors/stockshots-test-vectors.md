@@ -104,3 +104,54 @@ Then:
 - broker historical data replaces yfinance for the overlapping timestamp;
 - websocket data wins for realtime overlap;
 - source metadata reflects the winning provider.
+
+## Binance Futures Mark Price
+
+Given:
+
+- a Binance USD-M futures contract has trade ticks and mark-price updates;
+
+When:
+
+- the latest futures row is returned;
+
+Then:
+
+- last traded price and mark price are separate fields;
+- funding context is included when available;
+- missing open-interest context is null or degraded;
+- customer UI does not expose leverage or account controls.
+
+## Binance Options Missing Greeks
+
+Given:
+
+- a Binance options contract has price data but missing Greeks;
+
+When:
+
+- the option appears in a screen or chart;
+
+Then:
+
+- missing Greeks are null;
+- the row remains visible only if liquidity/freshness rules pass;
+- options momentum fields may be computed;
+- non-options markets still return null for options-only fields.
+
+## Kite Option Resolution
+
+Given:
+
+- a user wants the current at-the-money NIFTY call and put;
+
+When:
+
+- the symbol registry is refreshed;
+
+Then:
+
+- expiry, strike, option side, lot size, tick size, and instrument token come
+  from the provider instrument master;
+- no expiry date is hardcoded;
+- websocket subscriptions use instrument tokens, not guessed symbols.

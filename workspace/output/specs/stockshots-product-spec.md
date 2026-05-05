@@ -54,6 +54,9 @@ unavailable:
 - Indian index and equity options.
 - Indian commodities if provider entitlement exists.
 - Binance spot crypto.
+- Binance USD-M futures where enabled.
+- Binance COIN-M futures where enabled.
+- Binance options where enabled and sufficiently liquid.
 - US equities through historical providers.
 - Earnings/company-event context where available.
 
@@ -70,8 +73,13 @@ Options-specific behavior:
 Crypto-specific behavior:
 
 - BTCUSDT is the default crypto benchmark.
-- Users/admins can add, remove, or pause Binance symbols.
+- Users/admins can add, remove, or pause Binance spot, futures, and options
+  symbols independently.
 - Expensive realtime computation should prioritize liquid symbols.
+- Futures rows must preserve contract type, funding context, mark price, and
+  open-interest context when available.
+- Binance options rows must preserve expiry, strike, option side, implied
+  volatility context, and underlying price context when available.
 
 ## Canonical Data Model
 
@@ -186,7 +194,8 @@ modules in one service, but their responsibilities must remain separate.
 
 Responsibilities:
 
-- subscribe to realtime provider streams;
+- subscribe to realtime provider streams for broker ticks, exchange trades,
+  klines, mark prices, funding context, and account/admin streams where enabled;
 - fetch historical candles;
 - normalize provider events into internal tick/candle events;
 - maintain symbol registry;

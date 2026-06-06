@@ -10,5 +10,5 @@ metadata:
 spec:
   type: tool
   lifecycle: production
-  owner: unknown
+  owner: user:obra
   system: superpowers

@@ -2,7 +2,7 @@
 
 > A Claude Code plugin that reverse-engineers clean behavioral specs, test vectors, and acceptance criteria from any codebase, with a full provenance trail.
 
-**Family:** superpowers · **Type:** tool · **Lifecycle:** production · **Owner:** unknown (anonymous commit by Jesse Vincent; no GitHub login on contributors API)
+**Family:** superpowers · **Type:** tool · **Lifecycle:** production · **Owner:** obra
 
 ## What it does
 Greenfield reads source code, docs, SDKs, runtime behavior, and binaries, then produces behavioral specifications, test vectors, acceptance criteria, and provenance citations describing what software does rather than how a codebase does it, so a fresh team can reimplement without inheriting internal structure. /analyze runs a seven-layer pipeline dispatching analyzer/sanitizer agents under many roles; /sanitize re-runs the sanitization pass. It stops at the specs.
